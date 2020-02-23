@@ -96,6 +96,11 @@ h1 {
     padding:5px 0px;
 }
 
+.default_btn {
+    background-color: #5ab4bd;
+    color: #FFFFFF;
+}
+
 #login_btn {
     background-color: #5ab4bd;
     color: #FFFFFF;
