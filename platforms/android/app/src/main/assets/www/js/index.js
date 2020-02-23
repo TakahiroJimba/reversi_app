@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
     // Application Constructor
     initialize: function() {
@@ -44,3 +26,33 @@ var app = {
 };
 
 app.initialize();
+
+function testApiCall() {
+  alert('hello');
+}
+
+$(function(){
+    // サーバ接続テストボタン
+    $('#test_server_connection_btn').on('click',function() {
+        $.ajax({
+            url: 'http://127.0.0.1:8001/api/login_auth',
+            type: 'POST',
+            data: {'id': 'test_id', 'password': 'password', '_method': 'POST'},
+            success: function(response) {
+                var json_data = JSON.parse(response);
+                if (json_data.is_login == '1') {
+                    // 認証成功
+                    alert("認証成功");
+                } else {
+                    // 認証失敗
+                    alert("認証失敗");
+                }
+            },
+            fail: function(response) {
+               // ajax失敗時の処理
+               // TODO: ダイアログにする
+               alert("サーバ接続に失敗しました。");
+           },
+        });
+    });
+});

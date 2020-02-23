@@ -43,10 +43,13 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
+	<key>undefined</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<key>192.168.3.5</key>
+		<dict>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<false/>
+		</dict>
 	</dict>
 </dict>
 </plist>
