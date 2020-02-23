@@ -1,0 +1,14 @@
+#login_btn {
+    background-color: #5ab4bd;
+    color: #FFFFFF;
+}
+
+.login_form > input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.login_btn_wrap {
+    width: 80%;
+    margin: auto;
+}
