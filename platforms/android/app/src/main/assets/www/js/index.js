@@ -34,6 +34,9 @@ function testApiCall() {
 let LOGIN_AUTH_API_URL = 'http://127.0.0.1:8001/api/login_auth';
 
 $(function(){
+    // FastClickを使用する
+    FastClick.attach(document.body);
+    
     // サーバ接続テストボタン
     $('#test_server_connection_btn').on('click',function() {
         $.ajax({
