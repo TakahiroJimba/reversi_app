@@ -39,22 +39,21 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    /* background:url(../img/logo.png) no-repeat center top; */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    /*padding:180px 0px 0px 0px;*/     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: 0px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        background-position:left center;
+        /* background-position:left center; */
         padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
         margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
@@ -87,6 +86,49 @@ h1 {
 .event.received {
     background-color:#4B946A;
     display:none;
+}
+
+.btn {
+    text-align: center;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    font-size:12px;
+    padding:5px 0px;
+}
+
+#login_btn {
+    background-color: #5ab4bd;
+    color: #FFFFFF;
+}
+
+.login_form > input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.login_btn_wrap {
+    width: 80%;
+    margin: auto;
+}
+
+#err_msg {
+    text-align: center;
+    color: red;
+}
+
+/* .width100per
+{
+    width: 100%;
+} */
+
+/* margin系 */
+.margin_left_30px
+{
+    margin-left: 30px;
+}
+.margin_right_30px
+{
+    margin-right: 30px;
 }
 
 @keyframes fade {
