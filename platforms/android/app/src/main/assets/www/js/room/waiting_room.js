@@ -1,10 +1,15 @@
 let WATCH_SERVER_API_URL = API_URL_BASE + 'api/watch_room';
 
 $(function(){
-
     var waiting_room_id = sessionStorage.getItem('waiting_room_id');
-    //関数hyoji()を5000ミリ秒間隔で呼び出す
+
+    //関数watchServer()を5000ミリ秒間隔で呼び出す
     setInterval("watchServer('waiting_room_id')", 5000);
+
+    // 退出ボタンクリック
+    $('#leaving_btn').on('click',function() {
+        window.location.href = '../../html/top_menu.html';
+    });
 });
 
 // 対戦者が入場したか確認する
@@ -14,7 +19,7 @@ function watchServer(waiting_room_id)
         url: WATCH_SERVER_API_URL,
         type: 'POST',
         data: {'waiting_room_id': waiting_room_id, '_method': 'POST'},
-        timeout: 1000,
+        timeout: 3000,
         success: function(response) {
             alert("test1");
         },

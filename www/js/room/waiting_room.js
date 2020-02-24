@@ -5,6 +5,11 @@ $(function(){
 
     //関数watchServer()を5000ミリ秒間隔で呼び出す
     setInterval("watchServer('waiting_room_id')", 5000);
+
+    // 退出ボタンクリック
+    $('#leaving_btn').on('click',function() {
+        window.location.href = '../../html/top_menu.html';
+    });
 });
 
 // 対戦者が入場したか確認する
