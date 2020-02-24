@@ -21,7 +21,7 @@ function watchServer(waiting_room_id)
         data: {'waiting_room_id': waiting_room_id, '_method': 'POST'},
         timeout: 3000,
         success: function(response) {
-            alert("test1");
+            window.location.href = '../../html/game/play.html';
         },
         fail: function(response) {
            // ajax失敗時の処理
