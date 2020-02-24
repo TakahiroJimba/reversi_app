@@ -1,4 +1,4 @@
-let LOGIN_AUTH_API_URL = 'http://127.0.0.1:8001/api/login_auth';
+let LOGIN_AUTH_API_URL = API_URL_BASE + 'api/login_auth';
 
 $(function(){
     // ログインボタン押下

@@ -1,3 +1,6 @@
+// 定数宣言
+let API_URL_BASE = 'http://127.0.0.1:8001/';
+
 var app = {
     // Application Constructor
     initialize: function() {

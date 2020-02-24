@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <title>ルーム作成</title>
+    </head>
+    <body>
+        <div class="app">
+            <div class="margin_left_30px margin_right_30px create_room_form">
+                <input id="name" type="text" value="" placeholder="ルーム名">
+                <input id="password" type="text" value="" placeholder="パスワード設定">
+            </div>
+            <div class="">
+                <div id="create_room_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                    作成
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../cordova.js"></script>
+        <script type="text/javascript" src="../../js/Zepto/zepto.min.js"></script>
+        <script type="text/javascript" src="../../js/fastclick-master/lib/fastclick.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/room/create_room.js"></script>
+    </body>
+</html>
