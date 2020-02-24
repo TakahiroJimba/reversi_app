@@ -11,8 +11,37 @@
         <title>対局</title>
     </head>
     <body>
+        <div class="app">
+            <div id="waiting">
+                <p>対戦相手が先行後攻を決めています。</p>
+                <p>しばらくお待ちください。</p>
+            </div>
+            <div id="selection">
+                <div class="">
+                    <div id="first_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                        先行
+                    </div>
+                </div>
+                <div class="">
+                    <div id="second_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                        後攻
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="opponent_info" class="info">
+            <p class="name">相手</p>
+            <span id="opponent_stone">　</span><span class="stone_num">2</span>枚
+        </div>
         <div id="canvas_wrap">
            <canvas id="canvas-2d" width="360" height="360" style="object-fit:contain;"></canvas>
+        </div>
+        <div>
+            <p id="msg">test</p>
+        </div>
+        <div id="you_info" class="info">
+            <p class="name">あなた</p>
+            <span id="you_stone">　</span><span class="stone_num">2</span>枚
         </div>
         <script type="text/javascript" src="../../cordova.js"></script>
         <script type="text/javascript" src="../../js/Zepto/zepto.min.js"></script>
