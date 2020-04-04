@@ -102,6 +102,10 @@ h1 {
 {
     margin-right: 30px;
 }
+.margin_bottom_30px
+{
+    margin-bottom: 30px;
+}
 
 @keyframes fade {
     from { opacity: 1.0; }
