@@ -64,6 +64,9 @@ $(function(){
     $('#again_btn').on('click', again);
     $('#end_btn').on('click', end_game);
 
+    // 降参するボタンクリック
+    $('#surrender').on('click', surrender);
+
     board_color = 'rgb(0, 138, 22)';
     board_size = 360;
     cell_num = 8;
@@ -122,9 +125,7 @@ function clickFirstOrSecondBtn()
             drawCanvas(cell_num, cell_num, board_size / cell_num, board_color);
 
             $('#selection').css('display', 'none');
-            $('#canvas_wrap').css('display', 'block');
-            $('.info').css('display', 'block');
-            $('#msg').css('display', 'block');
+            setGameDispVisible(true);
 
             if(IS_DEBUG_MODE){
                 $('#debug_info').css('display', 'block');
@@ -149,12 +150,14 @@ function end_game(){
     window.location.href = '../../html/top_menu.html';
 }
 
+// 降参するボタンクリックイベント
+function surrender(){
+    judge(-1, 0);
+}
+
 // 優先権を取得
 function getPriority(game_id){
-    $('#canvas_wrap').css('display', 'none');
-    $('.info').css('display', 'none');
-    $('#msg').css('display', 'none');
-
+    setGameDispVisible(false);
     $.ajax({
         url: GET_PRIORITY_API_URL,
         type: 'POST',
@@ -295,8 +298,6 @@ function onClick(e) {
         // さらに自分も置く場所が無い場合、勝敗判定をする
         if(drawCanPutMark(my_stone_number) == 0){
             judge(first_color_num, second_color_num);
-
-            // TODO: もう一度対戦するボタンを表示する
         }
     }
 
@@ -461,8 +462,7 @@ function TurnOverCount(x, y, d, stone_number)
 }
 
 // 勝敗判定
-function judge(my_stone_num, opponent_stone_num)
-{
+function judge(my_stone_num, opponent_stone_num){
     var result_msg;
     if(my_stone_num > opponent_stone_num){
         // 勝ち
@@ -476,6 +476,15 @@ function judge(my_stone_num, opponent_stone_num)
     }
     $('#msg').text(result_msg);
     $('#result').css('display', 'block');
+}
+
+// ゲーム画面の表示/非表示制御
+function setGameDispVisible(visible){
+    var display_str = visible ? 'block' : 'none';
+    $('#canvas_wrap').css('display', display_str);
+    $('.info').css('display', display_str);
+    $('#msg').css('display', display_str);
+    $('#surrender').css('display', display_str);
 }
 
 // getterとsetter
