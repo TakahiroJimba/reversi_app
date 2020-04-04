@@ -226,14 +226,6 @@ function drawStone(color, x, y, radius){
     context.stroke();
 }
 
-// マスの描画をリセットする
-// function drawStone(color, x, y){
-//     context.beginPath();    //パスを一度リセットする。
-//     // 面を描画
-//     context.fillStyle = board_color;
-//     context.fillRect(0, 0, 100, 100);
-// }
-
 // クリックイベントハンドラ
 function onClick(e) {
     if(!is_my_turn && !IS_DEBUG_MODE){
@@ -263,6 +255,12 @@ function onClick(e) {
     // 石を置く
     putStone(loc_x, loc_y, my_stone_number);
 
+    // 石の数を数える
+    var first_color_num = countStones(FIRST_COLOR_STONE);
+    var second_color_num = countStones(SECOND_COLOR_STONE);
+    setStoneNum(true, first_color_num);
+    setStoneNum(false, second_color_num);
+
     // 相手の石が置ける場所にマークを描画する
     var opponent_stone_number = my_stone_number == FIRST_COLOR_STONE ? SECOND_COLOR_STONE : FIRST_COLOR_STONE;
     if(drawCanPutMark(opponent_stone_number) != 0){
@@ -275,15 +273,13 @@ function onClick(e) {
         }
     }else{
         // 相手の石を置く場所が無い場合、パスとする
-        // TODO: さらに自分も置く場所が無い場合、勝敗判定をする
+        // さらに自分も置く場所が無い場合、勝敗判定をする
+        if(drawCanPutMark(my_stone_number) == 0){
+            judge(first_color_num, second_color_num);
 
+            // TODO: もう一度対戦するボタンを表示する
+        }
     }
-
-    // 石の数を数える
-    var first_color_num = countStones(FIRST_COLOR_STONE);
-    var second_color_num = countStones(SECOND_COLOR_STONE);
-    setStoneNum(true, first_color_num);
-    setStoneNum(false, second_color_num);
 
     if(IS_DEBUG_MODE){
         // デバッグ用の情報を出力する
@@ -443,6 +439,23 @@ function TurnOverCount(x, y, d, stone_number)
         step++;
     }
     return 0;
+}
+
+// 勝敗判定
+function judge(my_stone_num, opponent_stone_num)
+{
+    var result_msg;
+    if(my_stone_num > opponent_stone_num){
+        // 勝ち
+        result_msg = "あなたの勝ちです。";
+    }else if(my_stone_num < opponent_stone_num){
+        // 負け
+        result_msg = "あなたの負けです。";
+    }else{
+        // 引き分け
+        result_msg = "引き分けです。";
+    }
+    $('#msg').text(result_msg);
 }
 
 // getterとsetter
