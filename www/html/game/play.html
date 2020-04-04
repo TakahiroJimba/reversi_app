@@ -16,6 +16,7 @@
                 <p>対戦相手が先行後攻を決めています。</p>
                 <p>しばらくお待ちください。</p>
             </div>
+            <!-- 先行後攻選択ボタン -->
             <div id="selection">
                 <div class="">
                     <div id="first_btn" class="btn default_btn margin_left_30px margin_right_30px">
@@ -33,6 +34,7 @@
             <p class="name">相手</p>
             <span id="opponent_stone">　</span><span class="stone_num">2</span>枚
         </div>
+        <!-- オセロ盤表示 -->
         <div id="canvas_wrap">
            <canvas id="canvas-2d" width="360" height="360" style="object-fit:contain;"></canvas>
         </div>
@@ -43,6 +45,15 @@
         <div id="you_info" class="info">
             <p class="name">あなた</p>
             <span id="you_stone">　</span><span class="stone_num">2</span>枚
+        </div>
+        <!-- リザルト画面 -->
+        <div id="result">
+            <div id="again_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                もう一度
+            </div>
+            <div id="end_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                終了する
+            </div>
         </div>
         <!-- デバッグ情報 -->
         <div id="debug_info">

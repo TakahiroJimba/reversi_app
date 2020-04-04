@@ -56,6 +56,21 @@
     display: none;
 }
 
+#result {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    margin: 250px 0 0 -130px;
+    background-color: rgba(196, 196, 196, 0.5);
+    padding: 30px;
+}
+
+#again_btn {
+    margin-bottom: 30px;
+}
+
 #debug_info {
     display: none;
 }

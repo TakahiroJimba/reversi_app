@@ -60,15 +60,18 @@ $(function(){
     $('#first_btn').on('click', clickFirstOrSecondBtn);
     $('#second_btn').on('click', clickFirstOrSecondBtn);
 
+    // もう一度/終了するボタンクリック
+    $('#again_btn').on('click', again);
+    $('#end_btn').on('click', end_game);
+
     board_color = 'rgb(0, 138, 22)';
     board_size = 360;
     cell_num = 8;
     grid_size = board_size / cell_num;
     grid_size_half = grid_size / 2;
 
-    is_my_turn = getPriority(game_id);
-
     canvas.addEventListener('click', onClick, false);
+    getPriority(game_id);
 });
 
 // 先行後攻決定ボタンクリック
@@ -134,8 +137,24 @@ function clickFirstOrSecondBtn()
     });
 }
 
+// もう一度ボタンクリックイベント
+function again(){
+    $('#result').css('display', 'none');
+    getPriority(game_id);
+}
+
+// 終了するボタンクリックイベント
+function end_game(){
+    // TOPメニューに戻る
+    window.location.href = '../../html/top_menu.html';
+}
+
 // 優先権を取得
 function getPriority(game_id){
+    $('#canvas_wrap').css('display', 'none');
+    $('.info').css('display', 'none');
+    $('#msg').css('display', 'none');
+
     $.ajax({
         url: GET_PRIORITY_API_URL,
         type: 'POST',
@@ -456,6 +475,7 @@ function judge(my_stone_num, opponent_stone_num)
         result_msg = "引き分けです。";
     }
     $('#msg').text(result_msg);
+    $('#result').css('display', 'block');
 }
 
 // getterとsetter
