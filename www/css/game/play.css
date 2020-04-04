@@ -55,3 +55,7 @@
     margin: 200px 0 0 -150px;
     display: none;
 }
+
+#debug_info {
+    display: none;
+}

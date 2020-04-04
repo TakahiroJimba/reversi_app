@@ -3,4 +3,59 @@
     left: 50%;
     top: 50%;
     margin: -180px 0px 0px -180px;
+    display: none;  /* ゲーム開始前は非表示 */
+}
+
+#selection {
+    display: none;
+}
+
+#waiting {
+    display: none;
+}
+
+#selection > div {
+    margin-bottom: 50px;
+}
+
+#you_info {
+    margin: 250px 0px 0px -150px;
+}
+
+#opponent_info {
+    margin: -300px 0px 0px -150px;
+}
+
+.info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid #000;
+    padding: 0px 15px 10px 15px;
+    border-radius: 5px;
+    width: 150px;
+    display: none;
+}
+
+#you_stone, #opponent_stone {
+    background-color: black;
+    border-radius: 100%;
+    padding: 0 1px;
+    margin-right: 5px;
+}
+
+#msg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid #000;
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    width: 250px;
+    margin: 200px 0 0 -150px;
+    display: none;
+}
+
+#debug_info {
+    display: none;
 }
