@@ -92,8 +92,7 @@ $(function(){
 });
 
 // 先行後攻決定ボタンクリック
-function clickFirstOrSecondBtn()
-{
+function clickFirstOrSecondBtn(){
     var clicked_id;
     if(game_mode == GAME_MODE_OFFLINE){
         clicked_id = "first_btn";
@@ -136,7 +135,10 @@ function clickFirstOrSecondBtn()
     $('#you_stone').css('background-color', my_color);
     $('#opponent_stone').css('background-color', opponent_color);
 
-    // TODO:オフラインの場合、対戦相手の情報をrotateさせる
+    if(game_mode == GAME_MODE_OFFLINE){
+        // オフラインの場合、対戦相手の情報をrotateさせる
+        $('#opponent_info').css({ transform: 'rotate(180deg)' });
+    }
 
     if(game_mode != GAME_MODE_ONLINE){
         gameStart();
@@ -180,6 +182,9 @@ function gameStart(){
 function again(){
     $('#result').css('display', 'none');
     getPriority(game_id);
+    if(game_mode == GAME_MODE_OFFLINE){
+        clickFirstOrSecondBtn();
+    }
 }
 
 // 終了するボタンクリックイベント
@@ -436,7 +441,7 @@ function putStone(x, y, stone_number){
     for(var i = 0; i < direction_array.length; i++)
     {
         // ある方向の挟んでいる石の数を取得
-        var turn_over_count = TurnOverCount(x, y, direction_array[i], stone_number);
+        var turn_over_count = turnOverCount(x, y, direction_array[i], stone_number);
         for(var step = 1; step <= turn_over_count; step++)
         {
             var now_x = x + step * direction_array[i].d_x;
@@ -475,7 +480,7 @@ function watchLine(x, y, stone_number){
     var turn_over_count = 0;
     for(var i = 0; i < direction_array.length; i++)
     {
-        turn_over_count += TurnOverCount(x, y, direction_array[i], stone_number);
+        turn_over_count += turnOverCount(x, y, direction_array[i], stone_number);
     }
     if (turn_over_count == 0)
     {
@@ -487,7 +492,7 @@ function watchLine(x, y, stone_number){
 }
 
 // 引数の方向について、挟んでいる相手の石の数を返す
-function TurnOverCount(x, y, d, stone_number)
+function turnOverCount(x, y, d, stone_number)
 {
     var d_x = d.d_x;
     var d_y = d.d_y;
@@ -510,6 +515,8 @@ function TurnOverCount(x, y, d, stone_number)
             if (location != stone_number) {
                 // 相手の石だった場合
                 exist_opponent_stone = true;
+            }else {
+                return 0;
             }
         }
         step++;
