@@ -198,15 +198,12 @@ function initBoard(row_num, col_num, grid_size, color){
     putStone(4, 3, SECOND_COLOR_STONE);
     putStone(3, 4, SECOND_COLOR_STONE);
 
-    // 石を描画
-    // drawStone(first_color, grid_size * 4 - grid_size_half, grid_size * 4 - grid_size_half, grid_size_half * STONE_RATIO);
-    // drawStone(first_color, grid_size * 5 - grid_size_half, grid_size * 5 - grid_size_half, grid_size_half * STONE_RATIO);
-    // drawStone(second_color, grid_size * 5 - grid_size_half, grid_size * 4 - grid_size_half, grid_size_half * STONE_RATIO);
-    // drawStone(second_color, grid_size * 4 - grid_size_half, grid_size * 5 - grid_size_half, grid_size_half * STONE_RATIO);
-
     // 石の数を表示
     setStoneNum(true, 2);
     setStoneNum(false, 2);
+
+    // 石が置ける場所にマークを描画する
+    drawCanPutMark(my_stone_number);
 }
 
 // ボードを描画
@@ -219,7 +216,7 @@ function drawGrid(x, y, grid_size, color){
 }
 
 // 石を描画(座標は1から始まるので注意)
- function drawStone(color, x, y, radius){
+function drawStone(color, x, y, radius){
     context.beginPath();//円を描くためのパスを一度リセットする。
     context.lineWidth = 0;
     context.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -227,7 +224,7 @@ function drawGrid(x, y, grid_size, color){
     context.fill();
     context.strokeStyle = color;
     context.stroke();
- }
+}
 
 // クリックイベントハンドラ
 function onClick(e) {
@@ -258,32 +255,30 @@ function onClick(e) {
     // 石を置く
     putStone(loc_x, loc_y, my_stone_number);
 
-    // 相手のターンにする
-    is_my_turn = !is_my_turn;
-    $('#msg').text('相手のターンです');
-    if (!IS_DEBUG_MODE){
-        // // 相手のターンにする
-        // is_my_turn = false;
-        // $('#msg').text('相手のターンです');
-    } else {
-        // デバッグモード 次のターンに相手の石を置けるようにする
-        changeMyColor();
+    // 相手の石が置ける場所にマークを描画する
+    var opponent_stone_number = my_stone_number == FIRST_COLOR_STONE ? SECOND_COLOR_STONE : FIRST_COLOR_STONE;
+    if(drawCanPutMark(opponent_stone_number) != 0){
+        // 相手のターンにする
+        is_my_turn = !is_my_turn;
+        $('#msg').text('相手のターンです');
+        if (IS_DEBUG_MODE){
+            // デバッグモード 次のターンに相手の石を置けるようにする
+            changeMyColor();
+        }
+    }else{
+        // 相手の石を置く場所が無い場合、パスとする
+        // TODO: さらに自分も置く場所が無い場合、勝敗判定をする
+
     }
 
-    // 石の数を数える (デバッグモードだと数がおかしい)
+    // 石の数を数える
     var first_color_num = countStones(FIRST_COLOR_STONE);
     var second_color_num = countStones(SECOND_COLOR_STONE);
-    // if (my_stone_number == FIRST_COLOR_STONE) {
-    //     setStoneNum(true, first_color_num);
-    //     setStoneNum(false, second_color_num);
-    // } else {
-    //     setStoneNum(true, second_color_num);
-    //     setStoneNum(false, first_color_num);
-    // }
     setStoneNum(true, first_color_num);
     setStoneNum(false, second_color_num);
 
     if(IS_DEBUG_MODE){
+        // デバッグ用の情報を出力する
         var html_text = "";
         for(var y = 0; y < cell_num; y++){
             for(var x = 0; x < cell_num; x++){
@@ -296,6 +291,28 @@ function onClick(e) {
         $('#my_stone_number').text(my_stone_number);
         $('#my_color').text(my_color);
     }
+}
+
+// 石が置ける位置にマークを描画する
+function drawCanPutMark(stone_number)
+{
+    var can_put_count = 0;
+    for(var y = 0; y < cell_num; y++){
+        for(var x = 0; x < cell_num; x++){
+            if(getBoardStone(x, y) != NONE){
+                continue;
+            }
+            if(canPut(x, y, stone_number)){
+                // マークを描画する
+                drawStone("red", grid_size * (x + 1) - grid_size_half, grid_size * (y + 1) - grid_size_half, grid_size_half * 0.15);
+                can_put_count++;
+            }else{
+                // セルの描画をリセットする
+                drawGrid(x, y, board_size / cell_num, board_color);
+            }
+        }
+    }
+    return can_put_count;
 }
 
 // 画面に表示されている石の数を更新する
@@ -418,4 +435,14 @@ function TurnOverCount(x, y, d, stone_number)
         step++;
     }
     return 0;
+}
+
+// getterとsetter
+function getBoardStone(x, y)
+{
+    return board_stone_array[y + x * cell_num];
+}
+function setBoardStone(x, y, stone_number)
+{
+    board_stone_array[y + x * cell_num] = stone_number;
 }
