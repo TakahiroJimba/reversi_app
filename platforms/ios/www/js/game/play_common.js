@@ -67,9 +67,13 @@ $(function(){
         // 先行/後攻ボタンクリック
         $('#first_btn').on('click', clickFirstOrSecondBtn);
         $('#second_btn').on('click', clickFirstOrSecondBtn);
-
+    }
+    if(game_mode == GAME_MODE_ONLINE){
         // 降参するボタンクリック
         $('#surrender').on('click', surrender);
+    }else{
+        // 最初からやり直すボタンクリック
+        $('#restart').on('click', restart);
     }
 
     // もう一度/終了するボタンクリック
@@ -196,6 +200,11 @@ function endGame(){
 // 降参するボタンクリックイベント
 function surrender(){
     judge(-1, 0);
+}
+
+// 最初からやり直すボタンクリックイベント
+function restart(){
+    again();
 }
 
 // 優先権を取得
@@ -492,8 +501,7 @@ function watchLine(x, y, stone_number){
 }
 
 // 引数の方向について、挟んでいる相手の石の数を返す
-function turnOverCount(x, y, d, stone_number)
-{
+function turnOverCount(x, y, d, stone_number){
     var d_x = d.d_x;
     var d_y = d.d_y;
     var step = 1;   // いくつ隣か
@@ -547,15 +555,18 @@ function setGameDispVisible(visible){
     $('#canvas_wrap').css('display', display_str);
     $('.info').css('display', display_str);
     $('#msg').css('display', display_str);
-    $('#surrender').css('display', display_str);
+
+    if(game_mode == GAME_MODE_ONLINE){
+        $('#surrender').css('display', display_str);
+    }else{
+        $('#restart').css('display', display_str);
+    }
 }
 
 // getterとsetter
-function getBoardStone(x, y)
-{
+function getBoardStone(x, y){
     return board_stone_array[y + x * cell_num];
 }
-function setBoardStone(x, y, stone_number)
-{
+function setBoardStone(x, y, stone_number){
     board_stone_array[y + x * cell_num] = stone_number;
 }

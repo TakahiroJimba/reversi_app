@@ -67,9 +67,13 @@ $(function(){
         // 先行/後攻ボタンクリック
         $('#first_btn').on('click', clickFirstOrSecondBtn);
         $('#second_btn').on('click', clickFirstOrSecondBtn);
-
+    }
+    if(game_mode == GAME_MODE_ONLINE){
         // 降参するボタンクリック
         $('#surrender').on('click', surrender);
+    }else{
+        // 最初からやり直すボタンクリック
+        $('#restart').on('click', restart);
     }
 
     // もう一度/終了するボタンクリック
@@ -196,6 +200,11 @@ function endGame(){
 // 降参するボタンクリックイベント
 function surrender(){
     judge(-1, 0);
+}
+
+// 最初からやり直すボタンクリックイベント
+function restart(){
+    again();
 }
 
 // 優先権を取得
@@ -546,7 +555,12 @@ function setGameDispVisible(visible){
     $('#canvas_wrap').css('display', display_str);
     $('.info').css('display', display_str);
     $('#msg').css('display', display_str);
-    $('#surrender').css('display', display_str);
+
+    if(game_mode == GAME_MODE_ONLINE){
+        $('#surrender').css('display', display_str);
+    }else{
+        $('#restart').css('display', display_str);
+    }
 }
 
 // getterとsetter
