@@ -204,7 +204,7 @@ function surrender(){
 
 // 最初からやり直すボタンクリックイベント
 function restart(){
-    again();
+    $('#result').css('display', 'block');
 }
 
 // 優先権を取得

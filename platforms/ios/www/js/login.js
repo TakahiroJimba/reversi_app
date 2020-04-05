@@ -40,4 +40,9 @@ $(function(){
            },
         });
     });
+
+    // ログインボタン押下
+    $('#registration_btn').on('click',function() {
+        window.location.href = '../html/registration/new.html';
+    });
 });

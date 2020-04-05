@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../css/registration/auth.css">
+        <title>ユーザ認証</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="" class="margin_left_30px margin_right_30px">
+                <input id="pass_phrase" type="text" value="" placeholder="認証コード">
+            </div>
+            <!-- バリデーションエラーメッセージ -->
+            <div id="err_msg" class="width250px">
+            </div>
+            <div class="">
+                <div id="user_auth_btn" class="btn default_btn margin_left_30px margin_right_30px">
+                    認証
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../cordova.js"></script>
+        <script type="text/javascript" src="../../js/Zepto/zepto.min.js"></script>
+        <script type="text/javascript" src="../../js/fastclick-master/lib/fastclick.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/registration/auth.js"></script>
+    </body>
+</html>

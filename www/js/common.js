@@ -1,11 +1,6 @@
 // --- 定数宣言 ---
 let API_URL_BASE = 'http://127.0.0.1:8001/';
 
-// ゲームモード
-let GAME_MODE_OFFLINE = 0;
-let GAME_MODE_ONLINE = 1;
-let GAME_MODE_AI = 2;
-
 var app = {
     // Application Constructor
     initialize: function() {
