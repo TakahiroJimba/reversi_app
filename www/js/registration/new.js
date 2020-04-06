@@ -1,4 +1,4 @@
-let USER_REGISTRATION_API_URL = API_URL_BASE + 'api/registration_user';
+let USER_REGISTRATION_API_URL = API_URL_BASE + 'api/user_registration';
 
 $(function(){
     // 登録ボタンクリック
@@ -52,9 +52,9 @@ function userValidation(mail_address, name){
     if(mail_address == ""){
         err_msgs.push("メールアドレスを入力してください。");
     }else{
-        var mail_address_regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+        var mail_address_regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.+-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
         if(!mail_address_regexp.test(mail_address)){
-            err_msgs.push("メールアドレスの形式が正しくありません。");
+            err_msgs.push("メールアドレスに登録できない文字が含まれている、または不正なメールアドレスです。");
         }
     }
 
@@ -73,9 +73,8 @@ function userPasswordValidation(password, password_confirmation){
 
     // パスワード
     var regexp = new RegExp('[a-z\d]{' + USER_PASSWORD_MIN_LENGTH + ',' + USER_PASSWORD_MAX_LENGTH + '}', 'i');
-    //var regexp = /^[a-z\d]{8,30}$/i;
     if(!regexp.test(password)){
-        err_msgs.push("パスワードは" + USER_PASSWORD_MIN_LENGTH + "〜" + USER_PASSWORD_MAX_LENGTH + "文字で入力してください。");
+        err_msgs.push("パスワードは半角英数字" + USER_PASSWORD_MIN_LENGTH + "〜" + USER_PASSWORD_MAX_LENGTH + "文字で入力してください。");
     }else if(password != password_confirmation){
         err_msgs.push("確認用パスワードには同じパスワードを入力してください。");
     }
