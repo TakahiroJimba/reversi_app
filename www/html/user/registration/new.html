@@ -6,15 +6,17 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="../../css/common.css">
-        <link rel="stylesheet" type="text/css" href="../../css/registration/new.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/user/registration/new.css">
         <title>ユーザ登録</title>
     </head>
     <body>
         <div class="app">
             <div id="registration_form" class="margin_left_30px margin_right_30px">
-                <input id="mail_address" type="text" value="" placeholder="メールアドレス">
-                <input id="name" type="text" value="" placeholder="ニックネーム">
+                <input id="mail_address" type="text" value="" placeholder="メールアドレス"><span id="mail_address_msg"></span>
+                <div id="mail_address_err_msg"></div>
+                <input id="name" type="text" value="" placeholder="ニックネーム"><span id="name_msg"></span>
+                <div id="name_err_msg"></div>
                 <input id="password" type="password" value="" placeholder="パスワード">
                 <input id="password_confirmation" type="password" value="" placeholder="確認用パスワード">
             </div>
@@ -27,11 +29,13 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="../../cordova.js"></script>
-        <script type="text/javascript" src="../../js/Zepto/zepto.min.js"></script>
-        <script type="text/javascript" src="../../js/fastclick-master/lib/fastclick.js"></script>
-        <script type="text/javascript" src="../../js/common.js"></script>
-        <script type="text/javascript" src="../../js/const.js"></script>
-        <script type="text/javascript" src="../../js/registration/new.js"></script>
+        <script type="text/javascript" src="../../../cordova.js"></script>
+        <script type="text/javascript" src="../../../js/Zepto/zepto.min.js"></script>
+        <script type="text/javascript" src="../../../js/fastclick-master/lib/fastclick.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/const.js"></script>
+        <script type="text/javascript" src="../../../js/util.js"></script>
+        <script type="text/javascript" src="../../../js/user/common.js"></script>
+        <script type="text/javascript" src="../../../js/user/registration/new.js"></script>
     </body>
 </html>

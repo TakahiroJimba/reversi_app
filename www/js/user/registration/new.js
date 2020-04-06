@@ -40,55 +40,6 @@ $(function(){
                $('#err_msg').html("通信に失敗しました。<br>しばらくしてから再度お試しください。");
             },
         });
-
     });
+
 });
-
-// ユーザ情報バリデーション
-function userValidation(mail_address, name){
-    var err_msgs = [];
-
-    // メールアドレス
-    if(mail_address == ""){
-        err_msgs.push("メールアドレスを入力してください。");
-    }else{
-        var mail_address_regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.+-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
-        if(!mail_address_regexp.test(mail_address)){
-            err_msgs.push("メールアドレスに登録できない文字が含まれている、または不正なメールアドレスです。");
-        }
-    }
-
-    // ニックネーム
-    if(name == ""){
-        err_msgs.push("ニックネームを入力してください。");
-    }else if(name.length > USER_NAME_MAX_LENGTH){
-        err_msgs.push("ニックネームは" + USER_NAME_MAX_LENGTH + "文字以内で入力してください。");
-    }
-    return err_msgs;
-}
-
-// パスワードバリデーション
-function userPasswordValidation(password, password_confirmation){
-    var err_msgs = [];
-
-    // パスワード
-    var regexp = new RegExp('[a-z\d]{' + USER_PASSWORD_MIN_LENGTH + ',' + USER_PASSWORD_MAX_LENGTH + '}', 'i');
-    if(!regexp.test(password)){
-        err_msgs.push("パスワードは半角英数字" + USER_PASSWORD_MIN_LENGTH + "〜" + USER_PASSWORD_MAX_LENGTH + "文字で入力してください。");
-    }else if(password != password_confirmation){
-        err_msgs.push("確認用パスワードには同じパスワードを入力してください。");
-    }
-    return err_msgs;
-}
-
-// エラーメッセージ配列をHTMLテキストに変換する
-function getHTML_Text(err_msgs){
-    var err_msg_html = "";
-    for(var i = 0; i < err_msgs.length; i++){
-        if (i != 0){
-            err_msg_html += "<br>";
-        }
-        err_msg_html += err_msgs[i];
-    }
-    return err_msg_html;
-}
