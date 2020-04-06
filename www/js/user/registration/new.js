@@ -33,7 +33,8 @@ $(function(){
                     return;
                 }
                 // 登録成功時、認証コード入力画面に遷移する
-                window.location.href = '../../html/registration/auth.html';
+                localStorage.setItem('mail_address', mail_address);
+                window.location.href = '../../../html/user/registration/auth.html';
             },
             fail: function(response) {
                // ajax失敗時の処理

@@ -26,12 +26,14 @@ $(function(){
             data: {'id': id, 'password': password, '_method': 'POST'},
             success: function(response) {
                 var json_data = JSON.parse(response);
-                if (json_data.is_login == '1') {
-                    // 認証成功
-                    window.location.href = '../html/top_menu.html';
-                } else {
+                if (json_data.is_login != '1') {
                     // 認証失敗
                     err_msg_ele.text("ID または パスワードが違います");
+                } else {
+                    // 認証成功
+                    // TODO: APIから取得したsession_idをlocalStorageに格納する
+                    localStorage.setItem('session_id', 'TODO');
+                    window.location.href = '../html/top_menu.html';
                 }
             },
             fail: function(response) {
@@ -41,8 +43,8 @@ $(function(){
         });
     });
 
-    // ログインボタン押下
+    // ユーザ登録ボタン押下
     $('#registration_btn').on('click',function() {
-        window.location.href = '../html/registration/new.html';
+        window.location.href = '../html/user/registration/new.html';
     });
 });
