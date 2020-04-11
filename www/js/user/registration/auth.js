@@ -12,6 +12,10 @@ $(function(){
             window.location.href = '../../../html/error.html';
             return;
         }
+        if(pass_phrase == ""){
+            $('#err_msg').html("認証コードを入力してください。");
+            return;
+        }
 
         // 認証、本登録処理
         $.ajax({
