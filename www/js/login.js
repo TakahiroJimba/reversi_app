@@ -1,4 +1,5 @@
 let LOGIN_AUTH_API_URL = API_URL_BASE + 'api/login_auth';
+let USER_REGISTRATION_URL = GAME_MANAGER_URL_BASE + '/user/registration';
 
 $(function(){
     // ログインボタン押下
@@ -45,6 +46,7 @@ $(function(){
 
     // ユーザ登録ボタン押下
     $('#registration_btn').on('click',function() {
-        window.location.href = '../html/user/registration/new.html';
+        window.location.href = USER_REGISTRATION_URL;
+        //window.location.href = '../html/user/registration/new.html';
     });
 });

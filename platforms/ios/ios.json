@@ -34,7 +34,7 @@
             },
             {
               "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>NSExceptionDomains</key><dict><key>127.0.0.1</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict></dict>",
-              "count": 220
+              "count": 224
             },
             {
               "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>NSExceptionDomains</key><dict><key>121.0.0.1</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict></dict>",
