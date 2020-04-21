@@ -9,62 +9,14 @@
         "parents": {
           "NSAppTransportSecurity": [
             {
-              "xml": "<true />",
-              "count": 4,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<key>NSAllowsArbitraryLoads</key>",
-              "count": 1,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
-              "count": 1
-            },
-            {
-              "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>192.168.3.5</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict>",
-              "count": 1
-            },
-            {
-              "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>NSExceptionDomains</key><dict><key>192.168.3.5</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict></dict>",
-              "count": 1
-            },
-            {
               "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>NSExceptionDomains</key><dict><key>127.0.0.1</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict></dict>",
-              "count": 224
-            },
-            {
-              "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /><key>NSExceptionDomains</key><dict><key>121.0.0.1</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict></dict>",
-              "count": 1
+              "count": 30
             }
           ],
-          "undefined": [
+          "CFBundleURLTypes": [
             {
-              "xml": "<key>NSAllowsArbitraryLoads</key>",
-              "count": 2,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<true />",
-              "count": 2,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<key>NSExceptionDomains</key>",
-              "count": 1,
-              "mode": "merge",
-              "id": "config.xml"
-            },
-            {
-              "xml": "<dict><key>192.168.3.5</key><dict><key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key><false /></dict></dict>",
-              "count": 1,
-              "mode": "merge",
-              "id": "config.xml"
+              "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>reversiapp</string></array></dict></array>",
+              "count": 1
             }
           ]
         }
@@ -73,11 +25,11 @@
         "parents": {
           "/*": [
             {
-              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "xml": "<feature name=\"Badge\"><param name=\"ios-package\" value=\"APPBadge\" /></feature>",
               "count": 1
             },
             {
-              "xml": "<feature name=\"Badge\"><param name=\"ios-package\" value=\"APPBadge\" /></feature>",
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
               "count": 1
             },
             {
@@ -90,32 +42,28 @@
     }
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-plugin-transport-security": {
+    "cordova-plugin-badge": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
-    "cordova-plugin-badge": {
+    "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
-    "cordova-plugin-local-notification": {
+    "cordova-plugin-transport-security": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "reversiapp",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {},
   "modules": [
-    {
-      "id": "cordova-plugin-device.device",
-      "file": "plugins/cordova-plugin-device/www/device.js",
-      "pluginId": "cordova-plugin-device",
-      "clobbers": [
-        "device"
-      ]
-    },
     {
       "id": "cordova-plugin-badge.Badge",
       "file": "plugins/cordova-plugin-badge/www/badge.js",
@@ -125,19 +73,36 @@
       ]
     },
     {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
       "id": "cordova-plugin-local-notification.LocalNotification",
       "file": "plugins/cordova-plugin-local-notification/www/local-notification.js",
       "pluginId": "cordova-plugin-local-notification",
       "clobbers": [
         "cordova.plugins.notification.local"
       ]
+    },
+    {
+      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
+      "file": "plugins/cordova-plugin-customurlscheme/www/ios/LaunchMyApp.js",
+      "pluginId": "cordova-plugin-customurlscheme",
+      "clobbers": [
+        "window.plugins.launchmyapp"
+      ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-transport-security": "0.1.2",
-    "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.3"
+    "cordova-plugin-device": "2.0.3",
+    "cordova-plugin-local-notification": "0.9.0-beta.3",
+    "cordova-plugin-transport-security": "0.1.2",
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-customurlscheme": "5.0.1"
   }
 }

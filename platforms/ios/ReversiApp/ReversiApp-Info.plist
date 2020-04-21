@@ -43,13 +43,14 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>undefined</key>
-	<dict>
-		<key>192.168.3.5</key>
+	<key>CFBundleURLTypes</key>
+	<array>
 		<dict>
-			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-			<false/>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>reversiapp</string>
+			</array>
 		</dict>
-	</dict>
+	</array>
 </dict>
 </plist>

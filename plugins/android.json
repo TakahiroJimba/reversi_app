@@ -16,6 +16,13 @@
     "cordova-plugin-local-notification": {
       "ANDROID_SUPPORT_V4_VERSION": "26.+",
       "PACKAGE_NAME": "com.example.reversi"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "reversiapp",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.example.reversi"
     }
   },
   "dependent_plugins": {

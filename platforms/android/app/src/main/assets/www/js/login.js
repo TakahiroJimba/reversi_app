@@ -1,17 +1,19 @@
-let LOGIN_AUTH_API_URL = API_URL_BASE + 'api/login_auth';
-let USER_REGISTRATION_URL = GAME_MANAGER_URL_BASE + '/user/registration';
+let LOGIN_AUTH_API_URL = GAME_MANAGER_URL_BASE + 'api/login_auth';
+let USER_REGISTRATION_URL = GAME_MANAGER_URL_BASE + 'user/registration';
+// let LOGIN_URL = GAME_MANAGER_URL_BASE + 'login/1';
 
 $(function(){
     // ログインボタン押下
     $('#login_btn').on('click',function() {
-        var id = $('#id').val();
-        var password = $('#password').val();
-        var err_msg_ele = $('#err_msg').children('p');
+        // window.location.href = LOGIN_URL;
+        var mail_address = $('#mail_address').val();
+        var password     = $('#password').val();
+        var err_msg_ele  = $('#err_msg').children('p');
 
         // 入力チェック
-        if(id == "")
+        if(mail_address == "")
         {
-            err_msg_ele.text("IDを入力してください");
+            err_msg_ele.text("メールアドレスを入力してください");
             return;
         }
         if(password == "")
@@ -24,16 +26,16 @@ $(function(){
         $.ajax({
             url: LOGIN_AUTH_API_URL,
             type: 'POST',
-            data: {'id': id, 'password': password, '_method': 'POST'},
+            data: {'mail_address': mail_address, 'password': password, '_method': 'POST'},
             success: function(response) {
                 var json_data = JSON.parse(response);
                 if (json_data.is_login != '1') {
                     // 認証失敗
-                    err_msg_ele.text("ID または パスワードが違います");
+                    err_msg_ele.html(json_data.err_msg);
                 } else {
                     // 認証成功
-                    // TODO: APIから取得したsession_idをlocalStorageに格納する
-                    localStorage.setItem('session_id', 'TODO');
+                    // APIから取得したsession_idをlocalStorageに格納する
+                    localStorage.setItem('session_id', json_data.session_id);
                     window.location.href = '../html/top_menu.html';
                 }
             },

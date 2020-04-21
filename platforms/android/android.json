@@ -19,6 +19,10 @@
             {
               "xml": "<feature name=\"LocalNotification\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.localnotification.LocalNotification\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -66,6 +70,16 @@
               "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
               "count": 1
             }
+          ],
+          "/manifest/application/activity": [
+            {
+              "xml": "<intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /><data android:scheme=\"reversiapp\" /></intent-filter>",
+              "count": 1
+            },
+            {
+              "xml": "<intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /><data android:host=\" \" android:pathPrefix=\"/\" android:scheme=\" \" /></intent-filter>",
+              "count": 1
+            }
           ]
         }
       }
@@ -86,6 +100,13 @@
     },
     "cordova-plugin-local-notification": {
       "ANDROID_SUPPORT_V4_VERSION": "26.+",
+      "PACKAGE_NAME": "com.example.reversi"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "reversiapp",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.example.reversi"
     }
   },
@@ -114,6 +135,14 @@
       "clobbers": [
         "cordova.plugins.notification.local"
       ]
+    },
+    {
+      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
+      "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
+      "pluginId": "cordova-plugin-customurlscheme",
+      "clobbers": [
+        "window.plugins.launchmyapp"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -121,6 +150,7 @@
     "cordova-plugin-transport-security": "0.1.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.3"
+    "cordova-plugin-local-notification": "0.9.0-beta.3",
+    "cordova-plugin-customurlscheme": "5.0.1"
   }
 }

@@ -16,6 +16,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-intent href="reversiapp:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -38,4 +39,8 @@
             </dict>
         </config-file>
     </platform>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>

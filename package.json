@@ -16,6 +16,7 @@
     "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-customurlscheme": "^5.0.1",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-local-notification": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
     "cordova-plugin-transport-security": "0.1.2"
@@ -29,11 +30,17 @@
       "cordova-plugin-transport-security": {},
       "cordova-plugin-local-notification": {
         "ANDROID_SUPPORT_V4_VERSION": "26.+"
+      },
+      "cordova-plugin-customurlscheme": {
+        "URL_SCHEME": "reversiapp",
+        "ANDROID_SCHEME": " ",
+        "ANDROID_HOST": " ",
+        "ANDROID_PATHPREFIX": "/"
       }
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

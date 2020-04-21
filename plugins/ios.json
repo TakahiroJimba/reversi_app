@@ -15,6 +15,10 @@
     },
     "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "reversiapp",
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {

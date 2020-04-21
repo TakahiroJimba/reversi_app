@@ -23,6 +23,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.plugins.notification.local"
       ]
+    },
+    {
+      "id": "cordova-plugin-customurlscheme.LaunchMyApp",
+      "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
+      "pluginId": "cordova-plugin-customurlscheme",
+      "clobbers": [
+        "window.plugins.launchmyapp"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -30,6 +38,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-transport-security": "0.1.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.3"
+    "cordova-plugin-local-notification": "0.9.0-beta.3",
+    "cordova-plugin-customurlscheme": "5.0.1"
   };
 });
