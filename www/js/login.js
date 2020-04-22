@@ -1,6 +1,6 @@
 let LOGIN_AUTH_API_URL = GAME_MANAGER_URL_BASE + 'api/login_auth';
 let USER_REGISTRATION_URL = GAME_MANAGER_URL_BASE + 'user/registration';
-// let LOGIN_URL = GAME_MANAGER_URL_BASE + 'login/1';
+let PASSWORD_FORGET_URL = GAME_MANAGER_URL_BASE + 'user/pw/reset';
 
 $(function(){
     // ログインボタン押下
@@ -49,6 +49,10 @@ $(function(){
     // ユーザ登録ボタン押下
     $('#registration_btn').on('click',function() {
         window.location.href = USER_REGISTRATION_URL;
-        //window.location.href = '../html/user/registration/new.html';
+    });
+
+    // "パスワードを忘れた方"ボタン押下
+    $('#pass_forget_btn').on('click',function() {
+        window.location.href = PASSWORD_FORGET_URL;
     });
 });
