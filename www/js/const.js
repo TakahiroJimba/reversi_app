@@ -1,3 +1,6 @@
+// アプリ情報
+let APP_INFO_ID = 1;
+
 // バリデーションパラメータ
 // [User]
 let USER_NAME_MAX_LENGTH = 10;

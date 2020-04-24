@@ -26,7 +26,7 @@ $(function(){
         $.ajax({
             url: LOGIN_AUTH_API_URL,
             type: 'POST',
-            data: {'mail_address': mail_address, 'password': password, '_method': 'POST'},
+            data: {'mail_address': mail_address, 'password': password, 'app_info_id' : APP_INFO_ID, '_method': 'POST'},
             success: function(response) {
                 var json_data = JSON.parse(response);
                 if (json_data.is_login != '1') {
