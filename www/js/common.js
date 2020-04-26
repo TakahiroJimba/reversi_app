@@ -3,6 +3,8 @@ let API_URL_BASE = 'http://127.0.0.1:8001/';
 let GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
 let IS_LOGIN_API_URL = GAME_MANAGER_URL_BASE + 'api/is_login';
 
+var posting_flag = false;
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -36,6 +38,16 @@ $(function(){
     // FastClickを使用する
     FastClick.attach(document.body);
 });
+
+// 連打防止制御
+function isPosting(){
+    if(posting_flag){
+        return true;
+    }else{
+        posting_flag = true;
+        return false;
+    }
+}
 
 // カスタムURLでアクセス時に呼ばれるメソッド
 function handleOpenURL(url) {

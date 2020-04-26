@@ -3,6 +3,10 @@ let CREATE_ROOM_API_URL = API_URL_BASE + 'api/create_room';
 $(function(){
     // ルーム作成ボタンクリック
     $('#create_room_btn').on('click',function() {
+        // 連打防止制御
+        if(isPosting()){
+            return;
+        }
         var name = $('#name').val();
         var password = $('#password').val();
 

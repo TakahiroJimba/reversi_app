@@ -3,6 +3,10 @@ let USER_REGISTRATION_API_URL = API_URL_BASE + 'api/user_registration';
 $(function(){
     // 登録ボタンクリック
     $('#registration_btn').on('click',function() {
+        // 連打防止制御
+        if(isPosting()){
+            return;
+        }
         var mail_address = $('#mail_address').val();
         var name = $('#name').val();
         var password = $('#password').val();

@@ -3,6 +3,10 @@ let USER_AUTH_API_URL = API_URL_BASE + 'api/user_auth';
 $(function(){
     // 認証ボタンクリック
     $('#user_auth_btn').on('click',function() {
+        // 連打防止制御
+        if(isPosting()){
+            return;
+        }
         var pass_phrase = $('#pass_phrase').val();
         var mail_address = localStorage.getItem('mail_address');
 

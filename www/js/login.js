@@ -5,7 +5,12 @@ let PASSWORD_FORGET_URL = GAME_MANAGER_URL_BASE + 'user/pw/reset';
 $(function(){
     // ログインボタン押下
     $('#login_btn').on('click',function() {
-        // window.location.href = LOGIN_URL;
+        // 連打防止制御
+        if(isPosting()){
+            return;
+        }
+
+        $(this).prop('disabled',true);        //ボタンを無効化する
         var mail_address = $('#mail_address').val();
         var password     = $('#password').val();
         var err_msg_ele  = $('#err_msg').children('p');
@@ -34,7 +39,8 @@ $(function(){
                     err_msg_ele.html(json_data.err_msg);
                 } else {
                     // 認証成功
-                    // APIから取得したsession_idをlocalStorageに格納する
+                    // APIから取得したuser_idとsession_idをlocalStorageに格納する
+                    localStorage.setItem('user_id', json_data.user_id);
                     localStorage.setItem('session_id', json_data.session_id);
                     window.location.href = '../html/top_menu.html';
                 }
@@ -42,7 +48,7 @@ $(function(){
             fail: function(response) {
                // ajax失敗時の処理
                err_msg_ele.text("通信に失敗しました。しばらくしてから再度お試しください。");
-           },
+            },
         });
     });
 
