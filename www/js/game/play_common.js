@@ -443,6 +443,11 @@ function countStones(stone_number){
 function putStone(x, y, stone_number){
     // クリックされた場所に石を置く
     var put_color = stone_number == FIRST_COLOR_STONE ? first_color : second_color;
+
+    // TODO: ここで石を置くAPIを呼ぶ
+    // async: false
+    // 初期配置の石を置く時はサーバと同期する必要がないので注意(ゲーム開始時にサーバ側に石が置かれる)
+
     board_stone_array[y + x * cell_num] = stone_number;
     drawStone(put_color, grid_size * (x + 1) - grid_size_half, grid_size * (y + 1) - grid_size_half, grid_size_half * STONE_RATIO);
 

@@ -1,4 +1,5 @@
 let LOGOUT_API_URL = GAME_MANAGER_URL_BASE + 'api/logout';
+let CREATE_OFFLINE_GAME_API_URL = API_URL_BASE + 'api/create_offline_game';
 
 $(function(){
     // ルーム作成ボタンクリック
@@ -9,8 +10,38 @@ $(function(){
 
     // 2人で対戦(オフライン)ボタンクリック
     $('#off-line_btn').on('click',function() {
-        localStorage.setItem('game_mode', GAME_MODE_OFFLINE);
-        window.location.href = '../html/game/play.html';
+        var user_id = localStorage.getItem('user_id');
+        if(user_id == null){
+            // localStorageが削除されていた場合を考慮
+            window.location.href = '../html/index.html';
+            return;
+        }
+        // TODO: ボードサイズを選択できるようにする
+        var board_size = 8;
+
+        // Gameレコードを作成するAPIを呼ぶ
+        $.ajax({
+            url: CREATE_OFFLINE_GAME_API_URL,
+            type: 'POST',
+            data: {'user_id': user_id, 'board_size': board_size, '_method': 'POST'},
+            success: function(response) {
+                var json_data = JSON.parse(response);
+                if (json_data.is_success != '1') {
+                    // Gameレコード作成に失敗した場合
+                    alert('サーバエラーが発生しました。管理者へお問い合わせください。');
+                } else {
+                    // Gameレコード作成に成功した場合
+                    localStorage.setItem('game_id', json_data.game_id);
+                    localStorage.setItem('game_mode', GAME_MODE_OFFLINE);
+                    window.location.href = '../html/game/play.html';
+                }
+            },
+            fail: function(response) {
+                // 通信に失敗した場合
+                alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
+            },
+        });
+
     });
 
     //ログアウトボタン押下
@@ -19,7 +50,7 @@ $(function(){
         if(isPosting()){
             return;
         }
-        
+
         var user_id    = localStorage.getItem('user_id');
         var session_id = localStorage.getItem('session_id');
 
