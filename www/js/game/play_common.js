@@ -3,6 +3,7 @@ const IS_DEBUG_MODE = true; // デバッグモードで実行する
 
 // APIパス
 const PUT_STONE_API_URL    = API_URL_BASE + 'api/put_stone';
+const JUDGE_API_URL        = API_URL_BASE + 'api/judge';
 const GET_PRIORITY_API_URL = API_URL_BASE + 'api/get_priority';
 const SET_TURN_API_URL     = API_URL_BASE + 'api/set_turn';
 
@@ -461,11 +462,11 @@ function putStone(x, y, stone_number, is_init = false){
             url: PUT_STONE_API_URL,
             async: false,   // responseを待つ(同期処理)
             type: 'POST',
-            data: {'game_id': game_id,
-                   'user_id': user_id,
+            data: {'game_id':       game_id,
+                   'user_id':       user_id,
                    'is_first_turn': is_first_turn,
-                   'loc_x': x,
-                   'loc_y': y,
+                   'loc_x':         x,
+                   'loc_y':         y,
                    '_method': 'POST'},
             success: function(response) {
                 var json_data = JSON.parse(response);
@@ -604,6 +605,44 @@ function judge(my_stone_num, opponent_stone_num){
     }
     $('#msg').text(result_msg);
     $('#result').css('display', 'block');
+
+    // 降参かどうか
+    var is_surrender = my_stone_num == -1;
+
+    // 先行かどうか
+    var is_first_turn = my_stone_number == FIRST_COLOR_STONE;
+
+    // 勝敗判定APIを呼ぶ
+    $.ajax({
+        url: JUDGE_API_URL,
+        async: false,   // responseを待つ(同期処理)
+        type: 'POST',
+        data: {'game_id':       game_id,
+               'user_id':       user_id,
+               'is_first_turn': is_first_turn,
+               'is_surrender':  is_surrender,
+               '_method': 'POST'},
+        success: function(response) {
+            var json_data = JSON.parse(response);
+            if (json_data.is_success == '1') {
+                // API成功
+                return;
+            }
+            // API処理失敗
+            // err_statusの値に応じてメッセージを出力する
+            switch (json_data.err_status) {
+                case ERR_STATUS_DB_EXCEPTION:
+                    alert('サーバエラーが発生したため対戦履歴の登録に失敗しました。管理者へお問い合わせください。');
+                    break;
+                default:
+                // 他は不正なPOSTデータであるため、無視する
+            }
+        },
+        fail: function(response) {
+            // 通信に失敗した場合
+            alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
+        },
+    });
 }
 
 // ゲーム画面の表示/非表示制御
