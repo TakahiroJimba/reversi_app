@@ -4,6 +4,8 @@ const IS_DEBUG_MODE = true; // デバッグモードで実行する
 // APIパス
 const PUT_STONE_API_URL    = API_URL_BASE + 'api/put_stone';
 const JUDGE_API_URL        = API_URL_BASE + 'api/judge';
+const CREATE_OFFLINE_GAME_API_URL = API_URL_BASE + 'api/create_offline_game';
+
 const GET_PRIORITY_API_URL = API_URL_BASE + 'api/get_priority';
 const SET_TURN_API_URL     = API_URL_BASE + 'api/set_turn';
 
@@ -189,6 +191,33 @@ function again(){
     getPriority(game_id);
     if(game_mode == GAME_MODE_OFFLINE){
         clickFirstOrSecondBtn();
+
+        // Gameレコードを作成するAPIを呼ぶ
+        $.ajax({
+            url: CREATE_OFFLINE_GAME_API_URL,
+            type: 'POST',
+            data: {'user_id': user_id, 'board_size': cell_num, '_method': 'POST'},
+            success: function(response) {
+                var json_data = JSON.parse(response);
+                if (json_data.is_success != '1') {
+                    // Gameレコード作成に失敗した場合
+                    alert('サーバエラーが発生しました。管理者へお問い合わせください。');
+                    // トップメニューに戻る
+                    endGame();
+                    return;
+                }
+                // Gameレコード作成に成功した場合
+                // game_idを更新
+                game_id = json_data.game_id;
+                localStorage.setItem('game_id', game_id);
+            },
+            fail: function(response) {
+                // 通信に失敗した場合
+                alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
+                // トップメニューに戻る
+                endGame();
+            },
+        });
     }
 }
 
@@ -367,6 +396,10 @@ function onClick(e) {
         // さらに自分も置く場所が無い場合、勝敗判定をする
         if(drawCanPutMark(my_stone_number) == 0){
             judge(first_color_num, second_color_num);
+        }else{
+            // 自分は置く場所があるので相手だけパスする場合
+            var next_player = is_my_turn ? "あなた" : "相手";
+            alert("石を置ける場所がないためパスします。次は「" + next_player + "」のターンです。");
         }
     }
 
