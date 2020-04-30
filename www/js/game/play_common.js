@@ -1,5 +1,5 @@
 // --- 対戦機能で共通な機能をまとめたもの ---
-const IS_DEBUG_MODE = true; // デバッグモードで実行する
+const IS_DEBUG_MODE = false; // デバッグモードで実行する
 
 // APIパス
 const PUT_STONE_API_URL           = API_URL_BASE + 'api/put_stone';
