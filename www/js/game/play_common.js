@@ -2,9 +2,10 @@
 const IS_DEBUG_MODE = true; // デバッグモードで実行する
 
 // APIパス
-const PUT_STONE_API_URL    = API_URL_BASE + 'api/put_stone';
-const JUDGE_API_URL        = API_URL_BASE + 'api/judge';
+const PUT_STONE_API_URL           = API_URL_BASE + 'api/put_stone';
+const JUDGE_API_URL               = API_URL_BASE + 'api/judge';
 const CREATE_OFFLINE_GAME_API_URL = API_URL_BASE + 'api/create_offline_game';
+const DELETE_GAME_API_URL         = API_URL_BASE + 'api/delete_game';
 
 const GET_PRIORITY_API_URL = API_URL_BASE + 'api/get_priority';
 const SET_TURN_API_URL     = API_URL_BASE + 'api/set_turn';
@@ -235,6 +236,29 @@ function surrender(){
 // 最初からやり直すボタンクリックイベント
 function restart(){
     $('#result').css('display', 'block');
+
+    // Gameレコードを削除するAPIを呼ぶ
+    $.ajax({
+        url: DELETE_GAME_API_URL,
+        type: 'POST',
+        data: {'game_id': game_id, 'user_id': user_id, '_method': 'POST'},
+        success: function(response) {
+            var json_data = JSON.parse(response);
+            if (json_data.is_success != '1') {
+                // Gameレコード削除に失敗した場合
+                alert('サーバエラーが発生しました。管理者へお問い合わせください。');
+                // トップメニューに戻る
+                endGame();
+                return;
+            }
+        },
+        fail: function(response) {
+            // 通信に失敗した場合
+            alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
+            // トップメニューに戻る
+            endGame();
+        },
+    });
 }
 
 // 優先権を取得
@@ -512,7 +536,7 @@ function putStone(x, y, stone_number, is_init = false){
                             alert('サーバエラーが発生しました。管理者へお問い合わせください。');
                             break;
                         default:
-                        // 他は不正なPOSTデータであるため、無視する
+                            alert('予期せぬエラーが発生しました。管理者へお問い合わせください。');
                     }
                     return;
                 }
