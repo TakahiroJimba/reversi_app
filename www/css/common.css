@@ -83,6 +83,12 @@ h1 {
     color: #FFFFFF;
 }
 
+.warning_btn {
+    /* 赤色 */
+    background-color: #d06c6c;
+    color: #FFFFFF;
+}
+
 #err_msg {
     /* text-align: center; */
     color: red;

@@ -1,5 +1,5 @@
 let LOGOUT_API_URL = GAME_MANAGER_URL_BASE + 'api/logout';
-
+let USER_ACCOUNT_MANAGE_URL = GAME_MANAGER_URL_BASE + 'login';
 
 $(function(){
     // ルーム作成ボタンクリック
@@ -14,6 +14,11 @@ $(function(){
         // TODO: ボードサイズを選択できるようにする
         var board_size = 8;
         create_offline_game(board_size, 0);
+    });
+
+    // アカウント管理ボタン押下
+    $('#account_manage_btn').on('click',function() {
+        window.location.href = USER_ACCOUNT_MANAGE_URL;
     });
 
     //ログアウトボタン押下
