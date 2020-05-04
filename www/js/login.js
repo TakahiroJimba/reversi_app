@@ -19,11 +19,13 @@ $(function(){
         if(mail_address == "")
         {
             err_msg_ele.text("メールアドレスを入力してください");
+            posting_flag = false;
             return;
         }
         if(password == "")
         {
             err_msg_ele.text("パスワードを入力してください");
+            posting_flag = false;
             return;
         }
 
@@ -37,6 +39,7 @@ $(function(){
                 if (json_data.is_login != '1') {
                     // 認証失敗
                     err_msg_ele.html(json_data.err_msg);
+                    posting_flag = false;
                 } else {
                     // 認証成功
                     // APIから取得したuser_idとsession_idをlocalStorageに格納する
@@ -48,6 +51,7 @@ $(function(){
             fail: function(response) {
                // ajax失敗時の処理
                err_msg_ele.text("通信に失敗しました。しばらくしてから再度お試しください。");
+               posting_flag = false;
             },
         });
     });
