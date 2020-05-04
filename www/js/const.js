@@ -1,5 +1,5 @@
 // アプリ情報
-let APP_INFO_ID = 1;
+let APP_INFO_ID = 2;
 
 // バリデーションパラメータ
 // [User]
