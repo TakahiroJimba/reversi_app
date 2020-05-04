@@ -511,49 +511,6 @@ function putStone(x, y, stone_number, is_init = false){
         is_first_turn = false;
     }
 
-    // 初期配置の石を置く時はサーバと同期する必要がないので注意(ゲーム開始時にサーバ側に石が置かれる)
-    if(!is_init){
-        var api_is_success = false;
-        // 石を置くAPIを呼ぶ
-        $.ajax({
-            url: PUT_STONE_API_URL,
-            async: false,   // responseを待つ(同期処理)
-            type: 'POST',
-            data: {'game_id':       game_id,
-                   'user_id':       user_id,
-                   'is_first_turn': is_first_turn,
-                   'loc_x':         x,
-                   'loc_y':         y,
-                   '_method': 'POST'},
-            success: function(response) {
-                var json_data = JSON.parse(response);
-                if (json_data.is_success != '1') {
-                    // API処理失敗
-                    // err_statusの値に応じてメッセージを出力する
-                    switch (json_data.err_status) {
-                        case ERR_STATUS_DB_EXCEPTION:
-                        case ERR_STATUS_UPDATE_FAILURE:
-                            alert('サーバエラーが発生しました。管理者へお問い合わせください。');
-                            break;
-                        default:
-                            alert('予期せぬエラーが発生しました。管理者へお問い合わせください。');
-                    }
-                    return;
-                }
-                // API処理成功
-                api_is_success = true;
-            },
-            fail: function(response) {
-                // 通信に失敗した場合
-                alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
-            },
-        });
-        // API処理が失敗した場合、
-        if(!api_is_success){
-            return false;
-        }
-    }
-
     board_stone_array[y + x * cell_num] = stone_number;
     drawStone(put_color, grid_size * (x + 1) - grid_size_half, grid_size * (y + 1) - grid_size_half, grid_size_half * STONE_RATIO);
 
@@ -572,6 +529,47 @@ function putStone(x, y, stone_number, is_init = false){
             board_stone_array[now_y + now_x * cell_num] = stone_number;
             drawStone(put_color, grid_size * (now_x + 1) - grid_size_half, grid_size * (now_y + 1) - grid_size_half, grid_size_half * STONE_RATIO);
         }
+    }
+
+    // 初期配置の石を置く時はサーバと同期する必要がないので注意(ゲーム開始時にサーバ側に石が置かれる)
+    var api_is_success = false;
+    // 石を置くAPIを呼ぶ
+    $.ajax({
+        url: PUT_STONE_API_URL,
+        async: false,   // responseを待つ(同期処理)
+        type: 'POST',
+        data: {'game_id':       game_id,
+               'user_id':       user_id,
+               'is_first_turn': is_first_turn,
+               'loc_x':         x,
+               'loc_y':         y,
+               '_method': 'POST'},
+        success: function(response) {
+            var json_data = JSON.parse(response);
+            if (json_data.is_success != '1') {
+                // API処理失敗
+                // err_statusの値に応じてメッセージを出力する
+                switch (json_data.err_status) {
+                    case ERR_STATUS_DB_EXCEPTION:
+                    case ERR_STATUS_UPDATE_FAILURE:
+                        alert('サーバエラーが発生しました。管理者へお問い合わせください。');
+                        break;
+                    default:
+                        alert('予期せぬエラーが発生しました。管理者へお問い合わせください。');
+                }
+                return;
+            }
+            // API処理成功
+            api_is_success = true;
+        },
+        fail: function(response) {
+            // 通信に失敗した場合
+            alert('サーバ通信に失敗しました。ネットワーク接続環境をご確認ください。');
+        },
+    });
+    // API処理が失敗した場合、
+    if(!api_is_success){
+        return false;
     }
     return true;
 }
