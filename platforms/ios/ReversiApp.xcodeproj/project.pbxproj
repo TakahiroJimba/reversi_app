@@ -15,6 +15,7 @@
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		3BD26E75385048DFA0A7D065 /* APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80BFFBB68A4FD2AA761459 /* APPLocalNotification.m */; };
+		4BDAF4C5A7E34FC48AD96504 /* CDVWKProcessPoolFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E774A6C28714D13B804EAE9 /* CDVWKProcessPoolFactory.m */; };
 		64175DE58BAF4FD082CF71D3 /* APPNotificationCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCC6C1C31E84D33A6F57594 /* APPNotificationCategory.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
 		6DBE3A490515480F890CFB2B /* UNNotificationRequest+APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B1FA4E37A946EDB61081DE /* UNNotificationRequest+APPLocalNotification.m */; };
@@ -22,8 +23,11 @@
 		76FB1BDD46414EC8815BEAC5 /* APPNotificationOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E3C4C5202247D494258131 /* APPNotificationOptions.m */; };
 		810BC561C6954567A9B50583 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4991CF6395845A28BAB47BF /* CoreLocation.framework */; };
 		8EE6C068F38E4F42827CE434 /* UNUserNotificationCenter+APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C721B9568E743B596AD75A5 /* UNUserNotificationCenter+APPLocalNotification.m */; };
+		964EE445BB70413EA793C6B1 /* CDVWKWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3C2E9603746D39217BDBA /* CDVWKWebViewEngine.m */; };
 		9BA25B8D099E4A1DB51F3777 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A09B5A6577940E8A82F6EE0 /* UserNotifications.framework */; };
+		E485820758DC49AB8960E553 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4B888F9B8A4C6C91369C02 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EC2391FE38DD439D85631DAC /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE7FD9122824D37AAB8F056 /* CDVDevice.m */; };
+		F3C31116C2654B4DAD718A71 /* CDVWKWebViewUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5356EDB4FA5435E85D3087E /* CDVWKWebViewUIDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0195286077F848FA9C6079A8 /* CDVWKProcessPoolFactory.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKProcessPoolFactory.h; path = "cordova-plugin-wkwebview-engine/CDVWKProcessPoolFactory.h"; sourceTree = "<group>"; };
 		01E3C4C5202247D494258131 /* APPNotificationOptions.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPNotificationOptions.m; path = "cordova-plugin-local-notification/APPNotificationOptions.m"; sourceTree = "<group>"; };
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReversiApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		0973DBEE06DD4A3C8E4BDEAF /* UNNotificationRequest+APPLocalNotification.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "UNNotificationRequest+APPLocalNotification.h"; path = "cordova-plugin-local-notification/UNNotificationRequest+APPLocalNotification.h"; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		1D6058910D05DD3D006BFB54 /* ReversiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReversiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20430EEAFD704D0190D4C192 /* APPNotificationContent.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPNotificationContent.m; path = "cordova-plugin-local-notification/APPNotificationContent.m"; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CD3C2E9603746D39217BDBA /* CDVWKWebViewEngine.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKWebViewEngine.m; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewEngine.m"; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -70,8 +76,10 @@
 		32CA4F630368D1EE00C91783 /* ReversiApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReversiApp-Prefix.pch"; sourceTree = "<group>"; };
 		380C31E0114146C6BDC4641C /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		3A09B5A6577940E8A82F6EE0 /* UserNotifications.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		3E774A6C28714D13B804EAE9 /* CDVWKProcessPoolFactory.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKProcessPoolFactory.m; path = "cordova-plugin-wkwebview-engine/CDVWKProcessPoolFactory.m"; sourceTree = "<group>"; };
 		44B1FA4E37A946EDB61081DE /* UNNotificationRequest+APPLocalNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "UNNotificationRequest+APPLocalNotification.m"; path = "cordova-plugin-local-notification/UNNotificationRequest+APPLocalNotification.m"; sourceTree = "<group>"; };
 		462931F58EDB4805B8782765 /* APPNotificationContent.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = APPNotificationContent.h; path = "cordova-plugin-local-notification/APPNotificationContent.h"; sourceTree = "<group>"; };
+		5B4B888F9B8A4C6C91369C02 /* WebKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5C721B9568E743B596AD75A5 /* UNUserNotificationCenter+APPLocalNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "UNUserNotificationCenter+APPLocalNotification.m"; path = "cordova-plugin-local-notification/UNUserNotificationCenter+APPLocalNotification.m"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = ReversiApp/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		7AE7FD9122824D37AAB8F056 /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
@@ -83,11 +91,14 @@
 		B5F30F81603B469687FEF527 /* APPLocalNotification.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = APPLocalNotification.h; path = "cordova-plugin-local-notification/APPLocalNotification.h"; sourceTree = "<group>"; };
 		B7E813282021413A9A2DBA25 /* APPBadge.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPBadge.m; path = "cordova-plugin-badge/APPBadge.m"; sourceTree = "<group>"; };
 		BC80BFFBB68A4FD2AA761459 /* APPLocalNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPLocalNotification.m; path = "cordova-plugin-local-notification/APPLocalNotification.m"; sourceTree = "<group>"; };
+		BD9DFE8F327C49FD8DFE6E2A /* CDVWKWebViewUIDelegate.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKWebViewUIDelegate.h; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewUIDelegate.h"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F4991CF6395845A28BAB47BF /* CoreLocation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F5356EDB4FA5435E85D3087E /* CDVWKWebViewUIDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVWKWebViewUIDelegate.m; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewUIDelegate.m"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ReversiApp/config.xml; sourceTree = "<group>"; };
+		FB68E03589184E97B59F371C /* CDVWKWebViewEngine.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVWKWebViewEngine.h; path = "cordova-plugin-wkwebview-engine/CDVWKWebViewEngine.h"; sourceTree = "<group>"; };
 		FBCC6C1C31E84D33A6F57594 /* APPNotificationCategory.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPNotificationCategory.m; path = "cordova-plugin-local-notification/APPNotificationCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +110,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				9BA25B8D099E4A1DB51F3777 /* UserNotifications.framework in Frameworks */,
 				810BC561C6954567A9B50583 /* CoreLocation.framework in Frameworks */,
+				E485820758DC49AB8960E553 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +183,7 @@
 			children = (
 				3A09B5A6577940E8A82F6EE0 /* UserNotifications.framework */,
 				F4991CF6395845A28BAB47BF /* CoreLocation.framework */,
+				5B4B888F9B8A4C6C91369C02 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,6 +226,12 @@
 				AC5867EC16364AC8A7C7CCC8 /* APPNotificationOptions.h */,
 				9378200E7DC84B3EB2D4F4F9 /* UNUserNotificationCenter+APPLocalNotification.h */,
 				0973DBEE06DD4A3C8E4BDEAF /* UNNotificationRequest+APPLocalNotification.h */,
+				2CD3C2E9603746D39217BDBA /* CDVWKWebViewEngine.m */,
+				F5356EDB4FA5435E85D3087E /* CDVWKWebViewUIDelegate.m */,
+				3E774A6C28714D13B804EAE9 /* CDVWKProcessPoolFactory.m */,
+				FB68E03589184E97B59F371C /* CDVWKWebViewEngine.h */,
+				BD9DFE8F327C49FD8DFE6E2A /* CDVWKWebViewUIDelegate.h */,
+				0195286077F848FA9C6079A8 /* CDVWKProcessPoolFactory.h */,
 			);
 			name = Plugins;
 			path = ReversiApp/Plugins;
@@ -351,6 +370,9 @@
 				76FB1BDD46414EC8815BEAC5 /* APPNotificationOptions.m in Sources */,
 				8EE6C068F38E4F42827CE434 /* UNUserNotificationCenter+APPLocalNotification.m in Sources */,
 				6DBE3A490515480F890CFB2B /* UNNotificationRequest+APPLocalNotification.m in Sources */,
+				964EE445BB70413EA793C6B1 /* CDVWKWebViewEngine.m in Sources */,
+				F3C31116C2654B4DAD718A71 /* CDVWKWebViewUIDelegate.m in Sources */,
+				4BDAF4C5A7E34FC48AD96504 /* CDVWKProcessPoolFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +400,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Takahiro Jimba (7XBQZ68A6B)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEVELOPMENT_TEAM = PKENYAN37N;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -393,6 +415,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = reversi_app_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Debug;
 		};
@@ -409,7 +432,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Takahiro Jimba (PKENYAN37N)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEVELOPMENT_TEAM = PKENYAN37N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReversiApp/ReversiApp-Prefix.pch";
@@ -422,6 +445,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = reversi_app_dist;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Release;
 		};
@@ -464,7 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reversi;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				WK_WEB_VIEW_ONLY = 0;
+				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Debug;
 		};
@@ -505,7 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.reversi;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
-				WK_WEB_VIEW_ONLY = 0;
+				WK_WEB_VIEW_ONLY = 1;
 			};
 			name = Release;
 		};

@@ -23,6 +23,9 @@
       "ANDROID_HOST": " ",
       "ANDROID_PATHPREFIX": "/",
       "PACKAGE_NAME": "com.example.reversi"
+    },
+    "cordova-plugin-wkwebview-engine": {
+      "PACKAGE_NAME": "com.example.reversi"
     }
   },
   "dependent_plugins": {

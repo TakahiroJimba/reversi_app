@@ -39,6 +39,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-local-notification": "0.9.0-beta.3",
-    "cordova-plugin-customurlscheme": "5.0.1"
+    "cordova-plugin-customurlscheme": "5.0.1",
+    "cordova-plugin-wkwebview-engine": "1.2.1"
   };
 });
