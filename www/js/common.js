@@ -11,14 +11,14 @@ if(IS_PRODUCTION){
     // 本番環境
     API_URL_BASE          = 'http://104.155.141.249/';
     GAME_MANAGER_URL_BASE = 'https://www.game-collection.jp/';
-    ADMOB_BANNER_ID_FOR_IOS = 'ca-app-pub-9258943917656102/5517707641';
-    ADMOB_BANNER_ID_FOR_ANDROID = 'TODO';
+    ADMOB_BANNER_ID_FOR_IOS     = 'ca-app-pub-9258943917656102/5517707641';
+    ADMOB_BANNER_ID_FOR_ANDROID = 'ca-app-pub-9258943917656102/8689885641';
 }else{
     // 開発環境(local)
     API_URL_BASE          = 'http://127.0.0.1:8001/';
     GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
     ADMOB_BANNER_ID_FOR_IOS     = 'ca-app-pub-3940256099942544/2934735716';   // テスト広告
-    ADMOB_BANNER_ID_FOR_ANDROID = 'ca-app-pub-3940256099942544/6300978111';
+    ADMOB_BANNER_ID_FOR_ANDROID = 'ca-app-pub-3940256099942544/6300978111';   // テスト広告
 }
 
 let IS_LOGIN_API_URL = GAME_MANAGER_URL_BASE + 'api/is_login';
