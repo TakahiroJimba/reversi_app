@@ -22,6 +22,14 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+
+        // バナー広告表示
+        admob.banner.config({
+            id: 'ca-app-pub-3940256099942544/2934735716',
+            isTesting: true, // テスト広告
+            autoShow: true,
+        });
+        admob.banner.prepare();
     },
 
     // Update DOM on a Received Event
