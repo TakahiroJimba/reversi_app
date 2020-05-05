@@ -1,11 +1,11 @@
 // --- 定数宣言 ---
 // 本番環境
-let API_URL_BASE          = 'http://104.155.141.249/';
-let GAME_MANAGER_URL_BASE = 'https://www.game-collection.jp/';
+// let API_URL_BASE          = 'http://104.155.141.249/';
+// let GAME_MANAGER_URL_BASE = 'https://www.game-collection.jp/';
 
 // 開発環境(local)
-// let API_URL_BASE = 'http://127.0.0.1:8001/';
-// let GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
+let API_URL_BASE          = 'http://127.0.0.1:8001/';
+let GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
 let IS_LOGIN_API_URL = GAME_MANAGER_URL_BASE + 'api/is_login';
 
 var posting_flag = false;
