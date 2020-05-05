@@ -43,6 +43,9 @@
             	</dict>
             </dict>
         </config-file>
+        <edit-config file="*-Info.plist" mode="merge" target="GADApplicationIdentifier">
+            <string>ca-app-pub-9258943917656102~1846534871</string>
+        </edit-config>
     </platform>
     <feature name="HandleOpenUrl">
         <param name="ios-package" value="CDVHandleOpenURL" />

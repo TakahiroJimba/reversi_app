@@ -15,16 +15,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-local-notification": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/katzer/cordova-plugin-local-notifications"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ANDROID_SUPPORT_V4_VERSION": "26.+"
-    }
-  },
   "cordova-plugin-device": {
     "source": {
       "type": "registry",

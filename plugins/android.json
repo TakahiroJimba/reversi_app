@@ -13,10 +13,6 @@
     "cordova-plugin-transport-security": {
       "PACKAGE_NAME": "com.example.reversi"
     },
-    "cordova-plugin-local-notification": {
-      "ANDROID_SUPPORT_V4_VERSION": "26.+",
-      "PACKAGE_NAME": "com.example.reversi"
-    },
     "cordova-plugin-customurlscheme": {
       "URL_SCHEME": "reversiapp",
       "ANDROID_SCHEME": " ",
@@ -33,12 +29,6 @@
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.example.reversi"
-    },
-    "cordova-plugin-badge": {
-      "PACKAGE_NAME": "com.example.reversi"
-    },
     "cordova-promise-polyfill": {
       "PACKAGE_NAME": "com.example.reversi"
     },

@@ -4,17 +4,12 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="LocalNotification">
-        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
-    </feature>
     <feature name="LaunchMyApp">
         <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
     </feature>
-    <feature name="Badge">
-        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
+    <feature name="AdMob">
+        <param name="android-package" value="name.ratson.cordova.admob.AdMob" />
+        <param name="onload" value="true" />
     </feature>
     <name>ReversiApp</name>
     <description>
@@ -33,8 +28,4 @@
     <allow-intent href="reversiapp:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <feature name="AdMob">
-        <param name="android-package" value="name.ratson.cordova.admob.AdMob" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

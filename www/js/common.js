@@ -1,11 +1,26 @@
 // --- 定数宣言 ---
-// 本番環境
-// let API_URL_BASE          = 'http://104.155.141.249/';
-// let GAME_MANAGER_URL_BASE = 'https://www.game-collection.jp/';
+// ↓↓↓ リリース版の場合はtrueにする ↓↓↓
+let IS_PRODUCTION = false;
 
-// 開発環境(local)
-let API_URL_BASE          = 'http://127.0.0.1:8001/';
-let GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
+let API_URL_BASE;
+let GAME_MANAGER_URL_BASE;
+let ADMOB_BANNER_ID_FOR_IOS;
+let ADMOB_BANNER_ID_FOR_ANDROID;
+
+if(IS_PRODUCTION){
+    // 本番環境
+    API_URL_BASE          = 'http://104.155.141.249/';
+    GAME_MANAGER_URL_BASE = 'https://www.game-collection.jp/';
+    ADMOB_BANNER_ID_FOR_IOS = 'ca-app-pub-9258943917656102/5517707641';
+    ADMOB_BANNER_ID_FOR_ANDROID = 'TODO';
+}else{
+    // 開発環境(local)
+    API_URL_BASE          = 'http://127.0.0.1:8001/';
+    GAME_MANAGER_URL_BASE = 'http://127.0.0.1:8002/';
+    ADMOB_BANNER_ID_FOR_IOS     = 'ca-app-pub-3940256099942544/2934735716';   // テスト広告
+    ADMOB_BANNER_ID_FOR_ANDROID = 'ca-app-pub-3940256099942544/6300978111';
+}
+
 let IS_LOGIN_API_URL = GAME_MANAGER_URL_BASE + 'api/is_login';
 
 var posting_flag = false;
@@ -21,20 +36,37 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-
         // バナー広告表示
-        admob.banner.config({
-            id: 'ca-app-pub-3940256099942544/2934735716',
-            isTesting: true, // テスト広告
-            autoShow: true,
-        });
-        admob.banner.prepare();
+        var admob_banner_id;
+        if (cordova) {
+            if (cordova.platformId == 'android') {
+                // Androidの処理
+                admob_banner_id = ADMOB_BANNER_ID_FOR_ANDROID;
+            } else if (cordova.platformId == 'ios') {
+                // iOSの処理
+                admob_banner_id = ADMOB_BANNER_ID_FOR_IOS;
+            } else if (cordova.windowsId == 'windows') {
+                // Windowsの処理
+            }
+            admob.banner.config({
+                id: admob_banner_id,
+                isTesting: !IS_PRODUCTION, // テスト広告ならtrue
+                autoShow: true,
+            });
+            admob.banner.prepare();
+        } else {
+             // Cordova以外での処理
+             // 例：MonacaのプレビューやChromeAppなど
+        }
+        this.receivedEvent('deviceready');
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
+        if(parentElement == null){
+            return;
+        }
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
@@ -50,6 +82,7 @@ app.initialize();
 $(function(){
     // FastClickを使用する
     FastClick.attach(document.body);
+
 });
 
 // 連打防止制御

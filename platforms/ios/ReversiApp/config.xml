@@ -19,18 +19,11 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="LocalNotification">
-        <param name="ios-package" onload="true" value="APPLocalNotification" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="CDVWKWebViewEngine">
         <param name="ios-package" value="CDVWKWebViewEngine" />
     </feature>
-    <feature name="Badge">
-        <param name="ios-package" value="APPBadge" />
-    </feature>
-    <feature name="Device">
-        <param name="ios-package" value="CDVDevice" />
+    <feature name="AdMob">
+        <param name="ios-package" value="CDVAdMob" />
     </feature>
     <name>ReversiApp</name>
     <description>
@@ -63,6 +56,9 @@
             </dict>
         </dict>
     </config-file>
+    <edit-config file="*-Info.plist" mode="merge" target="GADApplicationIdentifier">
+        <string>ca-app-pub-9258943917656102~1846534871</string>
+    </edit-config>
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -78,7 +74,4 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="WKWebViewOnly" value="true" />
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-    <feature name="AdMob">
-        <param name="ios-package" value="CDVAdMob" />
-    </feature>
 </widget>
