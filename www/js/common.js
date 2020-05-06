@@ -36,28 +36,28 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        // バナー広告表示
-        var admob_banner_id;
-        if (cordova) {
-            if (cordova.platformId == 'android') {
-                // Androidの処理
-                admob_banner_id = ADMOB_BANNER_ID_FOR_ANDROID;
-            } else if (cordova.platformId == 'ios') {
-                // iOSの処理
-                admob_banner_id = ADMOB_BANNER_ID_FOR_IOS;
-            } else if (cordova.windowsId == 'windows') {
-                // Windowsの処理
-            }
-            admob.banner.config({
-                id: admob_banner_id,
-                isTesting: !IS_PRODUCTION, // テスト広告ならtrue
-                autoShow: true,
-            });
-            admob.banner.prepare();
-        } else {
-             // Cordova以外での処理
-             // 例：MonacaのプレビューやChromeAppなど
-        }
+        // // バナー広告表示
+        // var admob_banner_id;
+        // if (cordova) {
+        //     if (cordova.platformId == 'android') {
+        //         // Androidの処理
+        //         admob_banner_id = ADMOB_BANNER_ID_FOR_ANDROID;
+        //     } else if (cordova.platformId == 'ios') {
+        //         // iOSの処理
+        //         admob_banner_id = ADMOB_BANNER_ID_FOR_IOS;
+        //     } else if (cordova.windowsId == 'windows') {
+        //         // Windowsの処理
+        //     }
+        //     admob.banner.config({
+        //         id: admob_banner_id,
+        //         isTesting: !IS_PRODUCTION, // テスト広告ならtrue
+        //         autoShow: true,
+        //     });
+        //     admob.banner.prepare();
+        // } else {
+        //      // Cordova以外での処理
+        //      // 例：MonacaのプレビューやChromeAppなど
+        // }
         this.receivedEvent('deviceready');
     },
 

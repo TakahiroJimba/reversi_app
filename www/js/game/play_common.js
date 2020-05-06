@@ -193,6 +193,11 @@ function again(){
     if(game_mode == GAME_MODE_OFFLINE){
         clickFirstOrSecondBtn();
 
+        // 未ログインの場合、サーバ通信は不要
+        if(user_id == null){
+            return;
+        }
+
         // Gameレコードを作成するAPIを呼ぶ
         $.ajax({
             url: CREATE_OFFLINE_GAME_API_URL,
@@ -236,6 +241,11 @@ function surrender(){
 // 最初からやり直すボタンクリックイベント
 function restart(){
     $('#result').css('display', 'block');
+
+    // オフラインモードで未ログインの場合、サーバ通信は不要
+    if(game_mode == GAME_MODE_OFFLINE && user_id == null){
+        return;
+    }
 
     // Gameレコードを削除するAPIを呼ぶ
     $.ajax({
@@ -531,6 +541,11 @@ function putStone(x, y, stone_number, is_init = false){
         }
     }
 
+    // オフラインモードで未ログインの場合、サーバ通信は不要
+    if(game_mode == GAME_MODE_OFFLINE && user_id == null){
+        return true;
+    }
+
     // 初期配置の石を置く時はサーバと同期する必要がないので注意(ゲーム開始時にサーバ側に石が置かれる)
     var api_is_success = false;
     // 石を置くAPIを呼ぶ
@@ -660,6 +675,10 @@ function judge(my_stone_num, opponent_stone_num){
     }
     $('#msg').text(result_msg);
     $('#result').css('display', 'block');
+
+    if(game_mode == GAME_MODE_OFFLINE && user_id == null){
+        return;
+    }
 
     // 降参かどうか
     var is_surrender = my_stone_num == -1;

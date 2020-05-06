@@ -20,9 +20,5 @@
                 <data android:host=" " android:pathPrefix="/" android:scheme=" " />
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent" />
-        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-9258943917656102~3082335747" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

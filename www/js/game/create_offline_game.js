@@ -10,8 +10,10 @@ function create_offline_game(board_size, depth){
 
     var user_id = localStorage.getItem('user_id');
     if(user_id == null){
-        // localStorageが削除されていた場合を考慮
-        window.location.href = back_path + '../html/index.html';
+        // ログインしていない場合でもオフライン対戦は可能とする
+        localStorage.setItem('game_mode', GAME_MODE_OFFLINE);
+        localStorage.removeItem('game_id');
+        window.location.href = back_path + '../html/game/play.html';
         return;
     }
 

@@ -19,17 +19,7 @@
     },
     "cordova-plugin-wkwebview-engine": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-plugin-admob-free": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
-  "dependent_plugins": {
-    "cordova-promise-polyfill": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-admob-sdk": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    }
-  }
+  "dependent_plugins": {}
 }

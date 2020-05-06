@@ -19,11 +19,11 @@
 }
 
 #you_info {
-    margin: 250px 0px 0px -150px;
+    margin: 240px 0px 0px -150px;
 }
 
 #opponent_info {
-    margin: -300px 0px 0px -150px;
+    margin: -270px 0px 0px -150px;
 }
 
 .info {
@@ -52,7 +52,7 @@
     padding: 10px 15px 10px 15px;
     border-radius: 5px;
     width: 250px;
-    margin: 200px 0 0 -150px;
+    margin: 195px 0 0 -150px;
     display: none;
 }
 
@@ -62,7 +62,7 @@
     top: 50%;
     width: 250px;
     width: 150px;
-    margin: 250px 0 0 10px;
+    margin: 240px 0 0 10px;
     display: none;
 }
 
@@ -72,7 +72,7 @@
     top: 50%;
     width: 250px;
     width: 150px;
-    margin: 250px 0 0 10px;
+    margin: 240px 0 0 10px;
     display: none;
 }
 

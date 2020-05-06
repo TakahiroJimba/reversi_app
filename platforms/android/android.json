@@ -15,10 +15,6 @@
             {
               "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
               "count": 1
-            },
-            {
-              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"name.ratson.cordova.admob.AdMob\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
             }
           ]
         }
@@ -30,16 +26,7 @@
       },
       "AndroidManifest.xml": {
         "parents": {
-          "/manifest/application": [
-            {
-              "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
-              "count": 1
-            },
-            {
-              "xml": "<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-9258943917656102~3082335747\" />",
-              "count": 1
-            }
-          ],
+          "/manifest/application": [],
           "/manifest": [],
           "/manifest/application/activity": [
             {
@@ -51,16 +38,7 @@
               "count": 1
             }
           ],
-          "/*": [
-            {
-              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-              "count": 1
-            }
-          ]
+          "/*": []
         }
       }
     }
@@ -81,18 +59,6 @@
     },
     "cordova-plugin-wkwebview-engine": {
       "PACKAGE_NAME": "com.example.reversi"
-    },
-    "cordova-promise-polyfill": {
-      "PACKAGE_NAME": "com.example.reversi"
-    },
-    "cordova-admob-sdk": {
-      "PLAY_SERVICES_VERSION": "11.0.4",
-      "PACKAGE_NAME": "com.example.reversi"
-    },
-    "cordova-plugin-admob-free": {
-      "ADMOB_APP_ID": "ca-app-pub-9258943917656102~3082335747",
-      "PLAY_SERVICES_VERSION": "11.0.4",
-      "PACKAGE_NAME": "com.example.reversi"
     }
   },
   "dependent_plugins": {},
@@ -104,36 +70,12 @@
       "clobbers": [
         "window.plugins.launchmyapp"
       ]
-    },
-    {
-      "id": "cordova-promise-polyfill.Promise",
-      "file": "plugins/cordova-promise-polyfill/www/Promise.js",
-      "pluginId": "cordova-promise-polyfill",
-      "runs": true
-    },
-    {
-      "id": "cordova-promise-polyfill.promise.min",
-      "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
-      "pluginId": "cordova-promise-polyfill"
-    },
-    {
-      "id": "cordova-plugin-admob-free.AdMob",
-      "file": "plugins/cordova-plugin-admob-free/www/admob.js",
-      "pluginId": "cordova-plugin-admob-free",
-      "clobbers": [
-        "admob",
-        "AdMob",
-        "plugins.AdMob"
-      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-transport-security": "0.1.2",
     "cordova-plugin-customurlscheme": "5.0.1",
-    "cordova-plugin-wkwebview-engine": "1.2.1",
-    "cordova-promise-polyfill": "0.0.2",
-    "cordova-admob-sdk": "0.24.1",
-    "cordova-plugin-admob-free": "0.27.0"
+    "cordova-plugin-wkwebview-engine": "1.2.1"
   }
 }

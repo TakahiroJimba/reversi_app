@@ -104,6 +104,10 @@ h1 {
 } */
 
 /* margin系 */
+.margin_top_-50px
+{
+    margin-top: -50px;
+}
 .margin_left_30px
 {
     margin-left: 30px;

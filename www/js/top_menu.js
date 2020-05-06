@@ -2,6 +2,9 @@ let LOGOUT_API_URL = GAME_MANAGER_URL_BASE + 'api/logout';
 let USER_ACCOUNT_MANAGE_URL = GAME_MANAGER_URL_BASE + 'login';
 
 $(function(){
+    // アプリタイトルセット
+    $('#app_title').text(APP_NAME);
+
     // ルーム作成ボタンクリック
     $('#show_create_room_btn').on('click',function() {
         localStorage.setItem('game_mode', GAME_MODE_ONLINE);

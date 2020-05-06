@@ -1,5 +1,6 @@
 // アプリ情報
 let APP_INFO_ID = 2;
+let APP_NAME = "シンプルリバーシ";
 
 // バリデーションパラメータ
 // [User]
